@@ -1,5 +1,5 @@
 
-package com.manmanbuy.mumeng;
+package com.maochunjie.mumeng;
 
 import android.Manifest;
 import android.annotation.TargetApi;

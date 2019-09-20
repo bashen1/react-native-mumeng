@@ -1,5 +1,5 @@
 
-package com.manmanbuy.mumeng;
+package com.maochunjie.mumeng;
 
 import java.util.Arrays;
 import java.util.Collections;
