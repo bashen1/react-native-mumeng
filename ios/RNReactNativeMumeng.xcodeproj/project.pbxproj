@@ -12,9 +12,9 @@
 		89256EB12214FEC300529D68 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 89256EB02214FEC300529D68 /* libsqlite3.tbd */; };
 		89256EB32214FECF00529D68 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89256EB22214FECF00529D68 /* Security.framework */; };
 		89256EB52214FEDD00529D68 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89256EB42214FEDD00529D68 /* SystemConfiguration.framework */; };
-		89B01E57221E7311004785FD /* UMCommonLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B01E53221E7311004785FD /* UMCommonLog.framework */; };
-		89B01E58221E7311004785FD /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B01E55221E7311004785FD /* UMCommon.framework */; };
-		89B01E59221E7311004785FD /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B01E56221E7311004785FD /* UMAnalytics.framework */; };
+		89CA8C4823388EE00099C0E2 /* UMCommonLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CA8C4523388EE00099C0E2 /* UMCommonLog.framework */; };
+		89CA8C4923388EE00099C0E2 /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CA8C4623388EE00099C0E2 /* UMCommon.framework */; };
+		89CA8C4A23388EE00099C0E2 /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89CA8C4723388EE00099C0E2 /* UMAnalytics.framework */; };
 		B3E7B58A1CC2AC0600A0062D /* RNReactNativeMumeng.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNReactNativeMumeng.m */; };
 /* End PBXBuildFile section */
 
@@ -37,10 +37,10 @@
 		89256EB02214FEC300529D68 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		89256EB22214FECF00529D68 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		89256EB42214FEDD00529D68 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		89B01E53221E7311004785FD /* UMCommonLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommonLog.framework; sourceTree = "<group>"; };
-		89B01E54221E7311004785FD /* UMCommonLog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMCommonLog.bundle; sourceTree = "<group>"; };
-		89B01E55221E7311004785FD /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
-		89B01E56221E7311004785FD /* UMAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMAnalytics.framework; sourceTree = "<group>"; };
+		89CA8C4323388EE00099C0E2 /* UMCommonLog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMCommonLog.bundle; sourceTree = "<group>"; };
+		89CA8C4523388EE00099C0E2 /* UMCommonLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommonLog.framework; sourceTree = "<group>"; };
+		89CA8C4623388EE00099C0E2 /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
+		89CA8C4723388EE00099C0E2 /* UMAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMAnalytics.framework; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNReactNativeMumeng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNReactNativeMumeng.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNReactNativeMumeng.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNReactNativeMumeng.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,11 +50,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89B01E57221E7311004785FD /* UMCommonLog.framework in Frameworks */,
+				89CA8C4823388EE00099C0E2 /* UMCommonLog.framework in Frameworks */,
 				89256EB52214FEDD00529D68 /* SystemConfiguration.framework in Frameworks */,
 				89256EB32214FECF00529D68 /* Security.framework in Frameworks */,
-				89B01E59221E7311004785FD /* UMAnalytics.framework in Frameworks */,
-				89B01E58221E7311004785FD /* UMCommon.framework in Frameworks */,
+				89CA8C4A23388EE00099C0E2 /* UMAnalytics.framework in Frameworks */,
+				89CA8C4923388EE00099C0E2 /* UMCommon.framework in Frameworks */,
 				89256EB12214FEC300529D68 /* libsqlite3.tbd in Frameworks */,
 				89256EAF2214FEBF00529D68 /* libz.tbd in Frameworks */,
 				89256EAD2214FEB500529D68 /* CoreTelephony.framework in Frameworks */,
@@ -75,7 +75,7 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				89B01E52221E7311004785FD /* UmengSDK */,
+				89CA8C4123388EE00099C0E2 /* UmengSDK */,
 				B3E7B5881CC2AC0600A0062D /* RNReactNativeMumeng.h */,
 				B3E7B5891CC2AC0600A0062D /* RNReactNativeMumeng.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -95,15 +95,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		89B01E52221E7311004785FD /* UmengSDK */ = {
+		89CA8C4123388EE00099C0E2 /* UmengSDK */ = {
 			isa = PBXGroup;
 			children = (
-				89B01E53221E7311004785FD /* UMCommonLog.framework */,
-				89B01E54221E7311004785FD /* UMCommonLog.bundle */,
-				89B01E55221E7311004785FD /* UMCommon.framework */,
-				89B01E56221E7311004785FD /* UMAnalytics.framework */,
+				89CA8C4223388EE00099C0E2 /* Resources */,
+				89CA8C4423388EE00099C0E2 /* Frameworks */,
 			);
 			path = UmengSDK;
+			sourceTree = "<group>";
+		};
+		89CA8C4223388EE00099C0E2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				89CA8C4323388EE00099C0E2 /* UMCommonLog.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		89CA8C4423388EE00099C0E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89CA8C4523388EE00099C0E2 /* UMCommonLog.framework */,
+				89CA8C4623388EE00099C0E2 /* UMCommon.framework */,
+				89CA8C4723388EE00099C0E2 /* UMAnalytics.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +161,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
@@ -256,6 +273,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UmengSDK",
+					"$(PROJECT_DIR)/UmengSDK/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -276,6 +294,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UmengSDK",
+					"$(PROJECT_DIR)/UmengSDK/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
