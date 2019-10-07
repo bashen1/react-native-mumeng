@@ -1,7 +1,6 @@
 
 #import "RNReactNativeMumeng.h"
 #import <UMCommon/UMCommon.h>
-#import <UMCommonLog/UMCommonLogManager.h>
 
 @implementation RNReactNativeMumeng
 
@@ -33,7 +32,6 @@ RCT_EXPORT_METHOD(initSDK: (NSDictionary *)param resolve: (RCTPromiseResolveBloc
         if([debug isEqual:@"true"]){
             isDebug = YES;
         }
-        [UMCommonLogManager setUpUMCommonLogManager];//开发者需要显式的调用此函数，日志系统才能工作
         [UMConfigure setLogEnabled:isDebug];//设置打开日志
         [UMConfigure initWithAppkey:AppKey channel:channel];
         NSDictionary *ret = @{@"code": @"0", @"message":@"success"};

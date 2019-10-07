@@ -37,7 +37,7 @@ dependencies {
     compile 'com.facebook.react:react-native:+'
 
     //友盟SDK
-    compile files('libs/umeng-common-1.5.3.jar')
-    compile files('libs/umeng-analytics-7.5.3.jar')
+    compile files('libs/umeng-common-2.0.1.jar')
+    compile files('libs/umeng-analytics-8.0.0.jar')
 }
   

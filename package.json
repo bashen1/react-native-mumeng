@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-mumeng",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "react-native library for umeng",
   "main": "index.js",
   "scripts": {
