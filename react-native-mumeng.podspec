@@ -15,10 +15,11 @@ Pod::Spec.new do |s|
   s.source_files  = "ios/RNReactNativeMumeng.{h,m}"
   s.requires_arc  = true
 
-  s.vendored_frameworks = "ios/UmengSDK/*"
   s.frameworks = "CoreTelephony", "SystemConfiguration"
   s.libraries = "sqlite3", "z"
 
   s.dependency "React"
+  s.dependency 'UMCCommon'
+  s.dependency 'UMCAnalytics'
 
 end

@@ -1,6 +1,14 @@
 
 # react-native-mumeng
 
+[![npm version](https://badge.fury.io/js/react-native-mumeng.svg)](https://badge.fury.io/js/react-native-mumeng)
+
+## 注意点
+
+|         版本        |   版本  |   文档  |
+| :-----------------: | :---: | :---: |
+| react-native < 0.60 | 3.0.0 | [点击](./README_0.5X.md) |
+
 ## 开始
 
 `$ npm install react-native-mumeng --save`
@@ -12,34 +20,66 @@
 ### 手动配置
 
 
-#### iOS
+### Android
+打开`android/bulid.gradle`，添加以下仓库
+```
+······
+allprojects {
+    repositories {
+        ·····
+        maven {
+            url "https://dl.bintray.com/umsdk/release"
+        }
+    }
+}
+······
+```
 
-1. 打开XCode工程中, 右键点击 `Libraries` ➜ `Add Files to [your project's name]`
-2. 去 `node_modules` ➜ `react-native-mumeng` 目录添加 `RNReactNativeMumeng.xcodeproj`
-3. 在工程Build Phases ➜ Link Binary With Libraries 中添加 `libRNReactNativeMumeng.a`
+## 集成
 
-#### Android
+### iOS
 
-1. 打开 `android/app/src/main/java/[...]/MainActivity.java`
-  - 在顶部添加 `import com.reactlibrary.RNReactNativeMumengPackage;`
-  - 在 `getPackages()` 方法后添加 `new RNReactNativeMumengPackage()`
-2. 打开 `android/settings.gradle` ，添加:
-  	```
-  	include ':react-native-mumeng'
-  	project(':react-native-mumeng').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-mumeng/android')
-  	```
-3. 打开 `android/app/build.gradle` ，添加:
-  	```
-      compile project(':react-native-mumeng')
-  	```
+编辑`AppDelegate.m`
 
+```
+#import <UMCommon/UMCommon.h>
 
-### 其他配置
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  [UMConfigure initWithAppkey:@"XXXXXXXX" channel:@"App Store"];
+}
+```
 
-#### iOS
+### Android
 
-1. 在工程中引入 `node_modules/react-native-mumeng/ios/UmengSDK`
+1. `MainActivity.java`
 
+```
+import com.maochunjie.mumeng.RNReactNativeMumengModule;
+
+···
+protected void onPause() {
+    super.onPause();
+    RNReactNativeMumengModule.onPause(this);
+}
+
+protected void onResume() {
+    super.onResume();
+    RNReactNativeMumengModule.onResume(this);
+}
+```
+
+2. `MainApplication.java`
+
+```
+import com.maochunjie.mumeng.RNReactNativeMumengModule;
+
+···
+public void onCreate() {
+  super.onCreate();
+  RNReactNativeMumengModule.init(this, "XXXXX", "Umeng", UMConfigure.DEVICE_TYPE_PHONE, null);
+}
+```
 
 ## 使用
 ```javascript

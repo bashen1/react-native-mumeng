@@ -10,8 +10,10 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.text.TextUtils;
+
 import com.facebook.react.bridge.*;
 import com.umeng.commonsdk.UMConfigure;
+import com.umeng.analytics.MobclickAgent;
 
 import java.lang.reflect.Method;
 import java.net.NetworkInterface;
@@ -185,5 +187,17 @@ public class RNReactNativeMumengModule extends ReactContextBaseJavaModule {
             }
         }
         return result;
+    }
+
+    public static void init(Context context, String appkey, String channel, String secret) {
+        UMConfigure.init(context, appkey, channel, UMConfigure.DEVICE_TYPE_PHONE, secret);
+    }
+
+    public static void onPause(Context context) {
+        MobclickAgent.onPause(context);
+    }
+
+    public static void onResume(Context context) {
+        MobclickAgent.onResume(context);
     }
 }
