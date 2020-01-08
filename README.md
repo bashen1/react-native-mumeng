@@ -85,7 +85,7 @@ public void onCreate() {
 ```javascript
 import * as mUmeng from 'react-native-react-native-mumeng';
 
-// 初始化
+// 初始化(废除)
 initSDK = async ()=>{
     alert(JSON.stringify(await mUmeng.initSDK({
         appKey: '', //你的友盟appkey

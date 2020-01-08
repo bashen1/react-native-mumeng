@@ -1,6 +1,7 @@
 
 #import "RNReactNativeMumeng.h"
 #import <UMCommon/UMCommon.h>
+#import <UMAnalytics/MobClick.h>
 
 @implementation RNReactNativeMumeng
 
@@ -47,6 +48,65 @@ RCT_EXPORT_METHOD(getInfo: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseR
     NSString* deviceID =  [UMConfigure deviceIDForIntegration];
     NSDictionary *ret = @{@"code":@"1",@"message":deviceID};
     resolve(ret);
+}
+
+RCT_EXPORT_METHOD(onEvent:(NSString *)eventId)
+{
+  if (eventId == nil || [eventId isKindOfClass:[NSNull class]]) {
+    return;
+  }
+  [MobClick event:eventId];
+}
+
+RCT_EXPORT_METHOD(onEventWithLabel:(NSString *)eventId eventLabel:(NSString *)eventLabel)
+{
+  if (eventId == nil || [eventId isKindOfClass:[NSNull class]]) {
+    return;
+  }
+  if ([eventLabel isKindOfClass:[NSNull class]]) {
+    eventLabel = nil;
+  }
+  [MobClick event:eventId label:eventLabel];
+
+}
+
+RCT_EXPORT_METHOD(onEventWithMap:(NSString *)eventId parameters:(NSDictionary *)parameters)
+{
+  if (eventId == nil || [eventId isKindOfClass:[NSNull class]]) {
+    return;
+  }
+  if (parameters == nil && [parameters isKindOfClass:[NSNull class]]) {
+    parameters = nil;
+  }
+  [MobClick event:eventId attributes:parameters];
+}
+
+RCT_EXPORT_METHOD(onEventWithMapAndCount:(NSString *)eventId parameters:(NSDictionary *)parameters eventNum:(int)eventNum)
+{
+  if (eventId == nil || [eventId isKindOfClass:[NSNull class]]) {
+    return;
+  }
+  if (parameters == nil && [parameters isKindOfClass:[NSNull class]]) {
+    parameters = nil;
+  }
+  
+  [MobClick event:eventId attributes:parameters counter:eventNum];
+}
+
+RCT_EXPORT_METHOD(onPageBegin:(NSString *)pageName)
+{
+  if (pageName == nil || [pageName isKindOfClass:[NSNull class]]) {
+    return;
+  }
+  [MobClick beginLogPageView:pageName];
+}
+
+RCT_EXPORT_METHOD(onPageEnd:(NSString *)pageName)
+{
+  if (pageName == nil || [pageName isKindOfClass:[NSNull class]]) {
+    return;
+  }
+  [MobClick endLogPageView:pageName];
 }
 
 @end

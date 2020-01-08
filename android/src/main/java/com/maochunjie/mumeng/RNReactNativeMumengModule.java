@@ -9,16 +9,21 @@ import android.content.pm.PackageManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import com.facebook.react.bridge.*;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.analytics.MobclickAgent;
+import org.json.JSONObject;
 
 import java.lang.reflect.Method;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class RNReactNativeMumengModule extends ReactContextBaseJavaModule {
 
@@ -71,10 +76,75 @@ public class RNReactNativeMumengModule extends ReactContextBaseJavaModule {
         p.resolve(map);
     }
 
+    /********************************U-App统计*********************************/
+    @ReactMethod
+    public void onPageStart(String mPageName) {
+        MobclickAgent.onPageStart(mPageName);
+    }
+
+    @ReactMethod
+    public void onPageEnd(String mPageName) {
+        MobclickAgent.onPageEnd(mPageName);
+    }
+
+    @ReactMethod
+    public void onEvent(String eventId) {
+        MobclickAgent.onEvent(reactContext, eventId);
+    }
+
+    @ReactMethod
+    public void onEventWithLable(String eventId, String eventLabel) {
+        MobclickAgent.onEvent(reactContext, eventId, eventLabel);
+    }
+
+    @ReactMethod
+    public void onEventWithMap(String eventId, ReadableMap map) {
+        Map<String, String> rMap = new HashMap<String, String>();
+        ReadableMapKeySetIterator iterator = map.keySetIterator();
+        while (iterator.hasNextKey()) {
+            String key = iterator.nextKey();
+            if (ReadableType.Array == map.getType(key)) {
+                rMap.put(key, map.getArray(key).toString());
+            } else if (ReadableType.Boolean == map.getType(key)) {
+                rMap.put(key, String.valueOf(map.getBoolean(key)));
+            } else if (ReadableType.Number == map.getType(key)) {
+                rMap.put(key, String.valueOf(map.getInt(key)));
+            } else if (ReadableType.String == map.getType(key)) {
+                rMap.put(key, map.getString(key));
+            } else if (ReadableType.Map == map.getType(key)) {
+                rMap.put(key, map.getMap(key).toString());
+            }
+        }
+        MobclickAgent.onEvent(reactContext, eventId, rMap);
+    }
+
+    @ReactMethod
+    public void onEventWithMapAndCount(String eventId, ReadableMap map, int value) {
+        Map<String, String> rMap = new HashMap();
+        ReadableMapKeySetIterator iterator = map.keySetIterator();
+        while (iterator.hasNextKey()) {
+            String key = iterator.nextKey();
+            if (ReadableType.Array == map.getType(key)) {
+                rMap.put(key, map.getArray(key).toString());
+            } else if (ReadableType.Boolean == map.getType(key)) {
+                rMap.put(key, String.valueOf(map.getBoolean(key)));
+            } else if (ReadableType.Number == map.getType(key)) {
+                rMap.put(key, String.valueOf(map.getInt(key)));
+            } else if (ReadableType.String == map.getType(key)) {
+                rMap.put(key, map.getString(key));
+            } else if (ReadableType.Map == map.getType(key)) {
+                rMap.put(key, map.getMap(key).toString());
+            }
+        }
+        MobclickAgent.onEventValue(reactContext, eventId, rMap, value);
+    }
+
+    /********************************U-App统计*********************************/
+
     public static String getDeviceInfo(Context context) {
         try {
-            org.json.JSONObject json = new org.json.JSONObject();
-            android.telephony.TelephonyManager tm = (android.telephony.TelephonyManager) context
+            JSONObject json = new JSONObject();
+            TelephonyManager tm = (TelephonyManager) context
                     .getSystemService(Context.TELEPHONY_SERVICE);
             String device_id = null;
             if (checkPermission(context, Manifest.permission.READ_PHONE_STATE)) {
@@ -87,9 +157,11 @@ public class RNReactNativeMumengModule extends ReactContextBaseJavaModule {
                 device_id = mac;
             }
             if (TextUtils.isEmpty(device_id)) {
-                device_id = android.provider.Settings.Secure.getString(
-                        context.getContentResolver(),
-                        android.provider.Settings.Secure.ANDROID_ID);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CUPCAKE) {
+                    device_id = Settings.Secure.getString(
+                            context.getContentResolver(),
+                            Settings.Secure.ANDROID_ID);
+                }
             }
             json.put("device_id", device_id);
             return json.toString();
