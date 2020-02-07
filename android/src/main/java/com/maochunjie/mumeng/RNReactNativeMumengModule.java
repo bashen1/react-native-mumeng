@@ -78,7 +78,7 @@ public class RNReactNativeMumengModule extends ReactContextBaseJavaModule {
 
     /********************************U-App统计*********************************/
     @ReactMethod
-    public void onPageStart(String mPageName) {
+    public void onPageBegin(String mPageName) {
         MobclickAgent.onPageStart(mPageName);
     }
 
@@ -93,7 +93,7 @@ public class RNReactNativeMumengModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void onEventWithLable(String eventId, String eventLabel) {
+    public void onEventWithLabel(String eventId, String eventLabel) {
         MobclickAgent.onEvent(reactContext, eventId, eventLabel);
     }
 
