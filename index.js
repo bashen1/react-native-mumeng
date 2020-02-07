@@ -56,8 +56,8 @@ export function onEvent(eventId) {
  * @param eventId string
  * @param eventLabel string
  */
-export function onEventWithLable(eventId, eventLabel) {
-    RNReactNativeMumeng.onEventWithLable(eventId, eventLabel);
+export function onEventWithLabel(eventId, eventLabel) {
+    RNReactNativeMumeng.onEventWithLabel(eventId, eventLabel);
 }
 
 /**
