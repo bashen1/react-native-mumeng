@@ -1,7 +1,7 @@
 
 #import "RNReactNativeMumeng.h"
 #import <UMCommon/UMCommon.h>
-#import <UMAnalytics/MobClick.h>
+#import <UMCommon/MobClick.h>
 
 @implementation RNReactNativeMumeng
 

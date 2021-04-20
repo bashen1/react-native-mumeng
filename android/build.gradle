@@ -37,8 +37,8 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-
     //友盟SDK
-    implementation 'com.umeng.umsdk:common:2.0.1'
-    implementation 'com.umeng.umsdk:analytics:8.0.0'
+    implementation 'com.umeng.umsdk:common:9.3.8'
+    implementation 'com.umeng.umsdk:asms:1.2.2'
+    implementation 'com.umeng.umsdk:apm:1.2.0'
 }

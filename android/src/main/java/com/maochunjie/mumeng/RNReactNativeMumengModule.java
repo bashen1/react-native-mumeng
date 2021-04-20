@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import com.facebook.react.bridge.*;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.analytics.MobclickAgent;
+
 import org.json.JSONObject;
 
 import java.lang.reflect.Method;
@@ -263,6 +264,7 @@ public class RNReactNativeMumengModule extends ReactContextBaseJavaModule {
 
     public static void init(Context context, String appkey, String channel, String secret) {
         UMConfigure.init(context, appkey, channel, UMConfigure.DEVICE_TYPE_PHONE, secret);
+        MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.LEGACY_AUTO);
     }
 
     public static void onPause(Context context) {
