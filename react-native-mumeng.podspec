@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.libraries = "sqlite3", "z"
 
   s.dependency "React"
-  s.dependency 'UMCommon','1.1.1.P'
+  s.dependency 'UMCCommon','7.2.8'
   s.dependency 'UMDevice','1.2.0'
   s.dependency 'UMAPM','1.2.1'
 
