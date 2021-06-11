@@ -6,7 +6,7 @@ import {
 const {RNReactNativeMumeng} = NativeModules;
 
 /**
- * 初始化SDK（已废除）
+ * 初始化SDK
  * @param params
  * {
  *     appKey: '',
