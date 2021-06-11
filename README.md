@@ -37,6 +37,8 @@ allprojects {
 
 ## 集成
 
+以下初始化，可以不在app初始化的时候集成。在应用启动的时候自己选择初始化，用于隐私合规
+
 ### iOS
 
 编辑`AppDelegate.m`
@@ -52,24 +54,8 @@ allprojects {
 
 ### Android
 
-1. `MainActivity.java`
 
-```
-import com.maochunjie.mumeng.RNReactNativeMumengModule;
-
-···
-protected void onPause() {
-    super.onPause();
-    RNReactNativeMumengModule.onPause(this);
-}
-
-protected void onResume() {
-    super.onResume();
-    RNReactNativeMumengModule.onResume(this);
-}
-```
-
-2. `MainApplication.java`
+1. `MainApplication.java`
 
 ```
 import com.maochunjie.mumeng.RNReactNativeMumengModule;
@@ -85,7 +71,7 @@ public void onCreate() {
 ```javascript
 import * as mUmeng from 'react-native-react-native-mumeng';
 
-// 初始化(废除)
+// 初始化
 initSDK = async ()=>{
     alert(JSON.stringify(await mUmeng.initSDK({
         appKey: '', //你的友盟appkey

@@ -26,13 +26,14 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class RNReactNativeMumengModule extends ReactContextBaseJavaModule {
+public class RNReactNativeMumengModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
 
     private final ReactApplicationContext reactContext;
 
     public RNReactNativeMumengModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
+        reactContext.addLifecycleEventListener(this);
     }
 
     @Override
@@ -40,22 +41,22 @@ public class RNReactNativeMumengModule extends ReactContextBaseJavaModule {
         return "RNReactNativeMumeng";
     }
 
-    @ReactMethod // 初始化SDK（废除）
+    @ReactMethod // 初始化SDK
     public void initSDK(final ReadableMap data, final Promise p) {
         String appkey = data.getString("appKey");
         String debug = data.getString("debug");
         String channel = data.getString("channel");
-        Boolean isDebug = false;
-        if (debug == "true") {
+        boolean isDebug = false;
+        if (debug.equals("true")) {
             isDebug = true;
         }
         if (channel == null || channel.equals("")) {
             channel = "Umeng";
         }
         if (!appkey.equals("")) {
-            Application app = (Application) reactContext.getApplicationContext();
+            UMConfigure.init(reactContext, appkey, channel, UMConfigure.DEVICE_TYPE_PHONE, null);
+            MobclickAgent.setPageCollectionMode(MobclickAgent.PageMode.LEGACY_AUTO);
             UMConfigure.setLogEnabled(isDebug);
-            UMConfigure.init(app, appkey, channel, UMConfigure.DEVICE_TYPE_PHONE, "");
             WritableMap map = Arguments.createMap();
             map.putString("message", "success");
             map.putString("code", Integer.toString(0));
@@ -273,5 +274,24 @@ public class RNReactNativeMumengModule extends ReactContextBaseJavaModule {
 
     public static void onResume(Context context) {
         MobclickAgent.onResume(context);
+    }
+
+    public static void onDestroy(Context context) {
+        MobclickAgent.onKillProcess(context);
+    }
+
+    @Override
+    public void onHostResume() {
+        RNReactNativeMumengModule.onResume(reactContext);
+    }
+
+    @Override
+    public void onHostPause() {
+        RNReactNativeMumengModule.onPause(reactContext);
+    }
+
+    @Override
+    public void onHostDestroy() {
+        RNReactNativeMumengModule.onDestroy(reactContext);
     }
 }

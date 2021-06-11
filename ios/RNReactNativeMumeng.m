@@ -1,4 +1,3 @@
-
 #import "RNReactNativeMumeng.h"
 #import <UMCommon/UMCommon.h>
 #import <UMCommon/MobClick.h>
@@ -11,10 +10,7 @@
 }
 RCT_EXPORT_MODULE()
 
-
-///////
-
-//初始化SDK（已经废除）
+//初始化SDK
 RCT_EXPORT_METHOD(initSDK: (NSDictionary *)param resolve: (RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
     NSString *AppKey = @"";
     NSString *debug = @"false";
@@ -110,4 +106,3 @@ RCT_EXPORT_METHOD(onPageEnd:(NSString *)pageName)
 }
 
 @end
-  
