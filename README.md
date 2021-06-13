@@ -55,7 +55,7 @@ allprojects {
 ### Android
 
 
-1. `MainApplication.java`
+`MainApplication.java`
 
 ```
 import com.maochunjie.mumeng.RNReactNativeMumengModule;
@@ -66,6 +66,22 @@ public void onCreate() {
   RNReactNativeMumengModule.init(this, "XXXXX", "Umeng", UMConfigure.DEVICE_TYPE_PHONE, null);
 }
 ```
+
+如果采用js端初始化，则需要进行预初始化
+
+`MainApplication.java`
+
+```
+import com.maochunjie.mumeng.RNReactNativeMumengModule;
+
+···
+public void onCreate() {
+  super.onCreate();
+  RNReactNativeMumengModule.preInit(this, "XXXXX", "Umeng");
+}
+```
+
+
 
 ## 使用
 ```javascript
