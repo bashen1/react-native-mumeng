@@ -3,12 +3,6 @@
 
 [![npm version](https://badge.fury.io/js/react-native-mumeng.svg)](https://badge.fury.io/js/react-native-mumeng)
 
-## 注意点
-
-|         版本        |   版本  |   文档  |
-| :-----------------: | :---: | :---: |
-| react-native < 0.60 | 3.0.0 | [点击](./README_0.5X.md) |
-
 ## 开始
 
 `$ npm install react-native-mumeng --save`
