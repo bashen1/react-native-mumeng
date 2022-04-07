@@ -67,7 +67,7 @@ public class RNReactNativeMumengModule extends ReactContextBaseJavaModule implem
 
     /********************************U-App统计*********************************/
     @ReactMethod
-    public void onPageStart(String mPageName) {
+    public void onPageBegin(String mPageName) {
         MobclickAgent.onPageStart(mPageName);
     }
 
