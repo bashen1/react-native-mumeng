@@ -22,7 +22,7 @@ allprojects {
     repositories {
         ·····
         maven {
-            url "https://dl.bintray.com/umsdk/release"
+            url "https://repo1.maven.org/maven2/"
         }
     }
 }
@@ -57,7 +57,7 @@ import com.maochunjie.mumeng.RNReactNativeMumengModule;
 ···
 public void onCreate() {
   super.onCreate();
-  RNReactNativeMumengModule.init(this, "XXXXX", "Umeng", UMConfigure.DEVICE_TYPE_PHONE, null);
+  RNReactNativeMumengModule.init(this, "XXXXX", "Umeng", null);
 }
 ```
 
